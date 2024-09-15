@@ -25,6 +25,17 @@ function App() {
     }
   }
 
+
+  function deleteItem(id)
+  {
+    setItems(prevItems=>{
+      return prevItems.filter((item,index)=>{
+        return index!=id;
+      });
+    })
+  }
+
+
   return (
     <div className="app">
       <div className="middle text-center">
@@ -51,6 +62,14 @@ function App() {
             <div className="card-body">
               <h5 className="card-title">Task {index + 1}</h5>
               <p className="card-text">{todoItem}</p>
+              <button 
+                className="add-button btn delete-btn"
+                onClick={()=>{
+                  deleteItem(index);
+                }}
+              >
+                <span>Delete</span>
+              </button>
             </div>
           </div>
         ))}
