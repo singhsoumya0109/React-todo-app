@@ -44,10 +44,10 @@
 
 
 .to-do-list {
-  max-height: 300px; /* Set a maximum height for the list */
-  overflow-y: auto; /* Scroll if the list gets too long */
+  /* max-height: 300px;  */
+  overflow-y: auto; 
   margin-top: 20px;
-  padding: 0 10px;
+  padding: 0 10 px;
   /* border: 1px solid #ccc; */
   border-radius: 5px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
@@ -59,13 +59,13 @@
   background-color: #fff;
   padding: 10px;
   margin: 10px 0;
-  list-style-type: none; /* Remove bullet points */
+  list-style-type: none; 
   border: 1px solid #ccc;
   border-radius: 5px;
   color: black;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  word-wrap: break-word; /* Ensure long words break */
-  white-space: pre-wrap; /* Keep formatting of spaces and newlines */
+  word-wrap: break-word; 
+  white-space: pre-wrap; 
 }
 
 .to-do-item:hover {
@@ -84,4 +84,54 @@
 
 .to-do-list::-webkit-scrollbar-track {
   background-color: #f1f1f1; /* Background of the scrollbar track */
+}
+
+
+
+
+.app {
+  text-align: center;
+  padding: 20px;
+}
+
+.middle {
+  margin-bottom: 20px;
+}
+
+.input {
+  padding: 10px;
+  width: 600px;
+  margin-right: 10px;
+}
+
+.add-button {
+  padding: 10px 20px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  flex: 1 1 300px; /* Cards will take at least 300px, and flex nicely */
+  max-width: 400px; /* Limit maximum width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1rem;
 }

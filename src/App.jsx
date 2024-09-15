@@ -4,9 +4,9 @@ import './App.css';
 function App() {
   const [inputText, setInputText] = useState("Type your work");
   const [items, setItems] = useState([]);
+
   function change(event) {
     const newValue = event.target.value;
-    
     setInputText(newValue);
   }
 
@@ -15,39 +15,46 @@ function App() {
       setInputText("");
     }
   }
-  function addItem()
-  {
-    setItems(prevItems => {
-      return [...prevItems, inputText];
-    });
-    setInputText("");
+
+  function addItem() {
+    if (inputText !== "") {
+      setItems((prevItems) => {
+        return [...prevItems, inputText];
+      });
+      setInputText("");
+    }
   }
+
   return (
     <div className="app">
-      <div className="middle">
-      <h1 >To-Do List</h1>
-      <input
-        className="input"
-        onFocus={handleFocus}
-        onChange={change}
-        type="text"
-        value={inputText}
-      />
+      <div className="middle text-center">
+        <h1>To-Do List</h1>
+        <input
+          className="input"
+          onFocus={handleFocus}
+          onChange={change}
+          type="text"
+          value={inputText}
+        />
 
-      <button 
-      className="add-button"
-      onClick={addItem}
-      >
-        <span>Add</span>
-      </button>
+        <button 
+          className="add-button btn btn-primary"
+          onClick={addItem}
+        >
+          <span>Add</span>
+        </button>
       </div>
-      <div className="to-do-list">
-        <ul>
-          {items.map((todoItem, index) => (
-            <li className="to-do-item">{todoItem}</li>
-          ))}
-        </ul>
-      </div>
+
+      {items.length>0 && <div className="to-do-list card-container">
+        {items.map((todoItem, index) => (
+          <div key={index} className="card">
+            <div className="card-body">
+              <h5 className="card-title">Task {index + 1}</h5>
+              <p className="card-text">{todoItem}</p>
+            </div>
+          </div>
+        ))}
+      </div>}
     </div>
   );
 }
